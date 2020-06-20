@@ -8,7 +8,7 @@ from keras.layers import Flatten
 from keras.layers import Dense
 
 from keras.models import load_model
-classifier = tf.keras.models.load_model(r'C:\Users\91992\AppData\Local\Programs\Python\Python37\bus (1).h5')
+classifier = tf.keras.models.load_model(r'C:\Users\91992\AppData\Local\Programs\Python\Python37\bus (1).h5')#load the weight file of the trained CNN model
 
 from keras.preprocessing.image import ImageDataGenerator
 
@@ -25,7 +25,7 @@ import numpy as np
 from keras.preprocessing import image
 #import cv2
 
-test_image = image.load_img(r"C:\Users\91992\AppData\Local\Programs\Python\Python37\images\High (715) (2).jpg", target_size = (64,64))
+test_image = image.load_img(r"C:\Users\91992\AppData\Local\Programs\Python\Python37\images\High (715) (2).jpg", target_size = (64,64)) #import the image of crowd from a specified folder
 x = image.img_to_array(test_image)
 x = np.expand_dims(x, axis=0)
 
@@ -40,7 +40,7 @@ print(Labels[index])
 
 from firebase import firebase
 
-firebase=firebase.FirebaseApplication(r'https://sampleproj-1dada.firebaseio.com/')
+firebase=firebase.FirebaseApplication(r'https://sampleproj-1dada.firebaseio.com/')#load the link of the firebase database where we need to update the result
 
 result=firebase.patch('/user',{'new':Labels[index]})
 #result=firebase.get('/user/new',None)
